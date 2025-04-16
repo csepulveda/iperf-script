@@ -58,6 +58,8 @@ spec:
     spec:
       nodeSelector:
         kubernetes.io/hostname: "$SERVER_NODE"
+      tolerations:
+        - operator: "Exists"
       containers:
       - name: iperf3
         image: networkstatic/iperf3
@@ -107,6 +109,8 @@ spec:
     spec:
       nodeSelector:
         kubernetes.io/hostname: "$CLIENT_NODE"
+      tolerations:
+        - operator: "Exists"
       restartPolicy: Never
       containers:
       - name: iperf3
